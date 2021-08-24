@@ -18,6 +18,12 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
           crossorigin="anonymous">
 
+    <style>
+#result {
+  display: none;
+}
+    </style>
+
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
@@ -91,6 +97,9 @@ $( document ).ready(function() {
 
       $('#past').text(past);
       $('#future').text(future);
+      $('#results').show();
+    } else if (born.length == 0) {
+      $('#results').hide();
     }
   }); 
 });
