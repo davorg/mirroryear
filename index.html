@@ -93,7 +93,7 @@
 $( document ).ready(function() {
   $('#born').on('keyup', function() {
     var born = $('#born').val();
-    if (born.length == 4) {
+    if (born.length >= 4) {
       var year = new Date().getFullYear();
 
       var past   = born - (year - born);
@@ -102,7 +102,7 @@ $( document ).ready(function() {
       $('#past').text(past);
       $('#future').text(future);
       $('#results').show();
-    } else if (born.length == 0) {
+    } else {
       $('#results').hide();
     }
   }); 
