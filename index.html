@@ -19,25 +19,13 @@
     <title>Mirror Years</title>
 
     <link rel="canonical" href="https://davorg.dev/mirroryear/">
-
-    <base href="https://davorg.dev/mirroryear/">
     
-
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-          crossorigin="anonymous"> 
-
-    <style>
-#results {
-  display: none;
-}
-#age, #past, #future {
-  font-weight: bold;
-  color: red;
-}
-    </style>
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="css/mirror-years.css">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
@@ -47,22 +35,6 @@
     <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
 
     <script src="https://kit.fontawesome.com/83d48be8cc.js" crossorigin="anonymous"></script>
     
@@ -82,7 +54,7 @@
             <p class="col-md-8 fs-4 change">What year were you born?
               <span><input size="4" id="born"></span></p>
             <div id="results">
-              <p id="time-travel-warning" style="color: purple; font-weight: bold; display: none;">You appear to be a time-traveller!</p>
+              <p id="time-travel-warning">You appear to be a time-traveller!</p>
               <p>You are <span id="age"></span> years old.</p>
               <p>In the year you were born, someone who was your
                 current age, would have been born in
@@ -102,37 +74,6 @@
 
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
-    <script>
-$( document ).ready(function() {
-  $('#born').on('keyup', function() {
-    var born = $('#born').val();
-    if (born.length >= 4) {
-      var year = new Date().getFullYear();
-      var bornYear = parseInt(born);
-      
-      // Calculate user's age
-      var age = year - bornYear;
-      
-      var past   = born - age;
-      var future = year + age;
-
-      $('#age').text(age);
-      $('#past').text(past);
-      $('#future').text(future);
-      $('#results').show();
-      
-      // Check if user claims to be born in the future
-      if (bornYear > year) {
-        $('#time-travel-warning').show();
-      } else {
-        $('#time-travel-warning').hide();
-      }
-    } else {
-      $('#results').hide();
-      $('#time-travel-warning').hide();
-    }
-  }); 
-});
-    </script>
+    <script src="js/mirror-years.js"></script>
   </body>
 </html>
