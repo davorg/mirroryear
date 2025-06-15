@@ -1,30 +1,32 @@
-$(document).ready(function() {
-  $('#born').on('keyup', function() {
-    var born = $('#born').val();
+document.addEventListener('DOMContentLoaded', function() {
+  const bornInput = document.getElementById('born');
+
+  bornInput.addEventListener('keyup', function() {
+    const born = bornInput.value;
     if (born.length >= 4) {
-      var year = new Date().getFullYear();
-      var bornYear = parseInt(born);
+      const year = new Date().getFullYear();
+      const bornYear = parseInt(born);
       
       // Calculate user's age
-      var age = year - bornYear;
+      const age = year - bornYear;
       
-      var past   = born - age;
-      var future = year + age;
+      const past = born - age;
+      const future = year + age;
 
-      $('#age').text(age);
-      $('#past').text(past);
-      $('#future').text(future);
-      $('#results').show();
+      document.getElementById('age').textContent = age;
+      document.getElementById('past').textContent = past;
+      document.getElementById('future').textContent = future;
+      document.getElementById('results').style.display = 'block';
       
       // Check if user claims to be born in the future
       if (bornYear > year) {
-        $('#time-travel-warning').show();
+        document.getElementById('time-travel-warning').style.display = 'block';
       } else {
-        $('#time-travel-warning').hide();
+        document.getElementById('time-travel-warning').style.display = 'none';
       }
     } else {
-      $('#results').hide();
-      $('#time-travel-warning').hide();
+      document.getElementById('results').style.display = 'none';
+      document.getElementById('time-travel-warning').style.display = 'none';
     }
-  }); 
+  });
 });
